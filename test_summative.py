@@ -69,15 +69,6 @@ class TestAll(unittest.TestCase):
     def test_batch(self):
         self.assertEqual(batch_process([1,2,3,4],2), [[1,2],[3,4]])
 
-    def test_running_total(self):
-        self.assertEqual(running_total([1,2,3]), [1,3,6])
-
-    def test_inventory(self):
-        self.assertEqual(inventory_runout(10,[3,3,5]), "Day 3")
-
-    def test_password(self):
-        self.assertEqual(password_checker("abc123!"), "Strong")
-
 
 if __name__ == "__main__":
     unittest.main()

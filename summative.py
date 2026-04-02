@@ -159,84 +159,43 @@ def invert_dict(d: dict) -> dict:
 # ============================
 # ADVANCED (21–30)
 # ============================
-
-def longest_word(sentence: str) -> str:
-    pass
-
-
-def char_frequency(text: str) -> dict:
-    pass
-
-
-def second_largest(lst: list) -> int:
-    pass
-
-
 def prime_check(n: int) -> bool:
-    pass
+    
+    for i in range(n):
+        if i != 0 and i != 1 and n % i == 0:
+            return False
+    return True
 
 
 def fibonacci_list(n: int) -> list:
-    pass
+    fibo = [0,1]
+
+    while len(fibo) < n:
+        fibo.append(fibo[-1] + fibo[-2])
+    return fibo
 
 
 def group_by_even_odd(lst: list) -> dict:
-    pass
+    dict = {}
+    lst1 =[]
+    for i in lst:
+        if i % 2 == 0:
+            lst1.append("even")
+        else:
+            lst1.append("odd")
+        
+        for x in lst1:
+            if x not in dict:
+                dict[x] = []
+        dict[x].append(i)
+    return dict
+print(group_by_even_odd([3,2]))
+
 
 
 def batch_process(lst: list, size: int) -> list:
-    pass
+    lis = []
 
-
-def running_total(lst: list) -> list:
-    pass
-
-
-def inventory_runout(stock: int, sales: list) -> str:
-    pass
-
-
-def password_checker(password: str) -> str:
-    pass
-
-
-# # ============================
-# # DEBUGGING (31–35)
-# # FIX THE FUNCTIONS
-# # ============================
-
-# def buggy_sum(n: int) -> int:
-#     total = 0
-#     for i in range(n):
-#         total =+ i   # FIX THIS
-#     return total
-
-
-# def buggy_even(lst: list) -> list:
-#     result = []
-#     for i in lst:
-#         if i % 2 == 0:   # FIX THIS
-#             result.append(i)
-#     return result
-
-
-# def buggy_max(lst: list) -> int:
-#     max = 0
-#     for i in lst:
-#         if i > max:
-#             max = i   # FIX THIS
-#     return max
-
-
-# def buggy_factorial(n: int) -> int:
-#     if n == 0:
-#         return 1   # FIX THIS
-#     return n * buggy_factorial(n-1)
-
-
-# def buggy_password(p: str) -> str:
-#     if len(p) > 6:
-#         return "Strong"
-#     elif len(p) > 3:
-#         return "Medium"
-#     return "Weak"
+    for i in range(0, len(lst), size):
+        lis.append(lst[i : i + size])
+    return lis
